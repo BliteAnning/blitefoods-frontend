@@ -539,6 +539,10 @@ body{
 .order .cartTotal button{
   margin-top: 2rem;
 }
+
+/*verify*/
+
+
 /*responsive CSS*/
 
 @media (max-width: 1050px){
