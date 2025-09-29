@@ -1,6 +1,8 @@
 import { useContext,useState } from "react";
 import { StoredContext } from "../../Context/StoredContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const PlaceOrder = () => {
 
@@ -47,11 +49,16 @@ const PlaceOrder = () => {
         }else{
             alert("Error")
         }
-        console.log(orderItems);
         
-
     }
-
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if (!token) {
+            navigate("/cart")
+        } else if(getTotalAmount()===0){
+            navigate("/cart")
+        }
+    },[token])
 
 
 
